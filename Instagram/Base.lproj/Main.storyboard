@@ -26,6 +26,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-204" y="495"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="aUh-yr-7TU">
@@ -272,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Op-Xf-qWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2277.5999999999999" y="492.50374812593708"/>
+            <point key="canvasLocation" x="2418" y="493"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="Cec-j0-pcQ">
@@ -332,7 +333,86 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0CB-hw-KKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2929" y="495"/>
+            <point key="canvasLocation" x="3047" y="495"/>
+        </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="zS3-wE-uh2">
+            <objects>
+                <viewController storyboardIdentifier="Comment" id="ENd-Jd-oE3" customClass="CommentViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nbV-RF-daZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="sxH-4H-Xmk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1KQ-v1-zZU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o9m-QA-LjA">
+                                <rect key="frame" x="16" y="40" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="dQU-oJ-4bI"/>
+                                    <constraint firstAttribute="width" constant="120" id="dYK-IL-DSj"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SWv-MU-LHu">
+                                <rect key="frame" x="146" y="40" width="229" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="va9-eQ-eNf" userLabel="commen Button">
+                                <rect key="frame" x="26" y="170" width="323" height="40"/>
+                                <state key="normal" title="投稿" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="commenButton:" destination="ENd-Jd-oE3" eventType="touchUpInside" id="pN9-oW-6VG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqy-pX-0NO">
+                                <rect key="frame" x="26" y="220" width="323" height="40"/>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="commentCancel:" destination="ENd-Jd-oE3" eventType="touchUpInside" id="IPh-ln-Wwz"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Rd-Mt-Mwo">
+                                <rect key="frame" x="26" y="280" width="323" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="2qB-me-F4M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SWv-MU-LHu" firstAttribute="top" secondItem="o9m-QA-LjA" secondAttribute="top" id="8Dq-zs-yaf"/>
+                            <constraint firstItem="SWv-MU-LHu" firstAttribute="leading" secondItem="o9m-QA-LjA" secondAttribute="trailing" constant="10" id="EAn-1Q-odb"/>
+                            <constraint firstItem="va9-eQ-eNf" firstAttribute="leading" secondItem="1KQ-v1-zZU" secondAttribute="leadingMargin" constant="10" id="Ec9-BA-Qax"/>
+                            <constraint firstItem="Hqy-pX-0NO" firstAttribute="leading" secondItem="1KQ-v1-zZU" secondAttribute="leadingMargin" constant="10" id="FDg-Xi-6NG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="va9-eQ-eNf" secondAttribute="trailing" constant="10" id="Gmo-vN-fIV"/>
+                            <constraint firstItem="Hqy-pX-0NO" firstAttribute="top" secondItem="va9-eQ-eNf" secondAttribute="bottom" constant="10" id="HD9-N6-SJi"/>
+                            <constraint firstItem="o9m-QA-LjA" firstAttribute="top" secondItem="nbV-RF-daZ" secondAttribute="bottom" constant="20" id="IEW-5e-hJM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hqy-pX-0NO" secondAttribute="trailing" constant="10" id="Mtk-20-zrE"/>
+                            <constraint firstAttribute="trailing" secondItem="SWv-MU-LHu" secondAttribute="trailing" id="ZeM-cO-5NE"/>
+                            <constraint firstItem="9Rd-Mt-Mwo" firstAttribute="top" secondItem="Hqy-pX-0NO" secondAttribute="bottom" constant="20" id="aZo-vr-h6s"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9Rd-Mt-Mwo" secondAttribute="trailing" constant="10" id="cjb-is-U0H"/>
+                            <constraint firstItem="o9m-QA-LjA" firstAttribute="leading" secondItem="1KQ-v1-zZU" secondAttribute="leadingMargin" id="dDG-7H-iGe"/>
+                            <constraint firstItem="va9-eQ-eNf" firstAttribute="top" secondItem="SWv-MU-LHu" secondAttribute="bottom" constant="10" id="ecg-Lh-ajd"/>
+                            <constraint firstItem="SWv-MU-LHu" firstAttribute="bottom" secondItem="o9m-QA-LjA" secondAttribute="bottom" id="g5Z-U1-PTZ"/>
+                            <constraint firstItem="9Rd-Mt-Mwo" firstAttribute="leading" secondItem="1KQ-v1-zZU" secondAttribute="leadingMargin" constant="10" id="ngk-X1-xKs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="beforeComment" destination="9Rd-Mt-Mwo" id="34k-4N-OFe"/>
+                        <outlet property="commentImage" destination="o9m-QA-LjA" id="MvN-ci-Fme"/>
+                        <outlet property="commentText" destination="SWv-MU-LHu" id="TRd-gh-YYq"/>
+                        <segue destination="Hkx-IZ-JEG" kind="show" identifier="commentSegue" id="DZM-Pz-hHR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ikP-Me-PFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1322" y="-269"/>
         </scene>
     </scenes>
     <resources>

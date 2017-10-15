@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import ESTabBarController
+import Firebase
+import FirebaseAuth
 
 class PostTableViewCell: UITableViewCell {
 
@@ -15,6 +18,11 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
+    
+    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var commentLabel: UILabel!
+
+    let str:String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,6 +42,16 @@ class PostTableViewCell: UITableViewCell {
         let likeNumber = postData.likes.count
         likeLabel.text = "\(likeNumber)"
         
+        print("postData.caption = \(String(describing: postData.caption))")
+        print("表示するcommentは、\(postData.comment)")
+        
+        if postData.comment != [] {
+            let str = postData.comment.joined(separator: "\n")
+            self.commentLabel.text = str
+            
+            print("strの値は、\(str)")
+            print("commentは、\(postData.comment)")
+        }
         let formatter = DateFormatter()
         formatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale!
         formatter.dateFormat = "yyyy-MM-dd HH:mm"

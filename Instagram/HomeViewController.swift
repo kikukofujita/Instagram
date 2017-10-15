@@ -15,6 +15,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var tableView: UITableView!
     
+    // test  受け取るためのプロパティ（変数）を宣言しておく
+    var image: UIImage?
+    var imageString: String?
+    var name: String?
+    var caption: String?
+    var date: NSDate?
+    var comment: String?
+    
+    var postData: PostData!
+    // test
+    
     var postArray: [PostData] = []
     
     // DatabaseのobserveEventの登録状態を表す
@@ -50,6 +61,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     if let uid = Auth.auth().currentUser?.uid {
                         let postData = PostData(snapshot: snapshot, myId: uid)
                         self.postArray.insert(postData, at: 0)
+                        
+                        print("postArray: \(self.postArray)")
                     
                     // TableViewを再表示する
                 self.tableView.reloadData()
@@ -119,8 +132,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(sender:event:)), for: UIControlEvents.touchUpInside)
+        
+        cell.commentButton.addTarget(self, action: #selector(handleButton2(sender:event:)), for: UIControlEvents.touchUpInside)
+        
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         // Auto Layoutを使ってセルの高さを動的に変更する
@@ -132,7 +149,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
     
-    // セル内のボタンがタップされたときに呼ばれるメソッド
+    // セル内のlikeボタンがタップされたときに呼ばれるメソッド
     func handleButton(sender: UIButton, event:UIEvent) {
         print("DEBUG_PRINT: likeボタンがタップされました。")
         
@@ -166,6 +183,28 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let likes = ["likes": postData.likes]
             postRef.updateChildValues(likes)
         }
+    }
+    
+    // *********************
+    // セル内のCommentボタンがタップされたときに呼ばれるメソッド
+    func handleButton2(sender: UIButton, event:UIEvent) {
+        print("DEBUG_PRINT: Commentボタンがタップされました。")
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+        
+       // 投稿の画面を開く
+        let commentViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comment") as! CommentViewController
+
+        commentViewController.postData = postData
+        print("commetボタンを押した時：\(postData.comment)")
+        
+        present(commentViewController, animated: true, completion: nil)
     }
 
     /*
