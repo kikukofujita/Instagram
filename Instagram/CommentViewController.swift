@@ -90,6 +90,8 @@ class CommentViewController: UIViewController {
             
             print("以前のstrの値は、\(str)")
             print("以前のcommentは、\(postData.comment)")
+        } else {
+            self.beforeComment.text = ""
         }
         
         

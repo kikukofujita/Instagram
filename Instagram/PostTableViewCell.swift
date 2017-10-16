@@ -51,6 +51,9 @@ class PostTableViewCell: UITableViewCell {
             
             print("strの値は、\(str)")
             print("commentは、\(postData.comment)")
+        } else {
+            let str = ""
+            self.commentLabel.text = str
         }
         let formatter = DateFormatter()
         formatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale!
